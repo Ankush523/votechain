@@ -8,7 +8,7 @@ const ChoosePage = () => {
             <br/>
             <br/>
             <br/>
-            <div className='flex flex-row pl-[20px] text-[20px] text-left text-purple-500 justify-around'>
+            <div className='flex flex-row text-[20px] text-left text-purple-500 justify-around'>
             <p >
                 <label className='text-[30px] text-purple-800 font-montserrat'>Our Aim is to make India's Voting System :</label>
                 <br/>More secure
