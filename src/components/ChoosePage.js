@@ -2,15 +2,15 @@ import React from 'react';
 const ChoosePage = () => {
     return (
         <div>
-            <label className='text-[50px] font-serif text-purple-800'>WELCOME TO INDIA'S FIRST</label>
+            <label className='text-[50px] font-montserrat text-purple-800'>WELCOME TO INDIA'S FIRST</label>
             <br/>
-            <label className='text-[50px] font-serif text-purple-800'>DECENTRALIZED VOTING PLATFORM</label>
+            <label className='text-[50px] font-montserrat text-purple-800'>DECENTRALIZED VOTING PLATFORM</label>
             <br/>
             <br/>
             <br/>
             <div className='flex flex-row pl-[20px] text-[20px] text-left text-purple-500'>
             <p >
-                <label className='text-[30px] text-purple-800'>Our Aim is to make India's Voting System :</label>
+                <label className='text-[30px] text-purple-800 font-montserrat'>Our Aim is to make India's Voting System :</label>
                 <br/>More secure
                 <br/>Transparent
                 <br/>Reliable and 
@@ -19,7 +19,7 @@ const ChoosePage = () => {
             </div>
             <br/>
             <br/>
-            <p className='text-[40px] text-purple-800'>
+            <p className='text-[40px] text-purple-800 font-montserrat'>
                 VOTE FROM ANYWHERE, ANY TIME WITHOUT ANY HASSLE
             </p>
             <br/>
