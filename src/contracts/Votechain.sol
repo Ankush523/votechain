@@ -11,6 +11,7 @@ contract Vote{
         uint uid;
         string name;
         uint age;
+        string contactnumber;
         address user;
     }
 
@@ -33,9 +34,9 @@ contract Vote{
         return cid;
     }
 
-    function userregister(string memory _name,uint _age) external{
+    function userregister(string memory _name,uint _age,string memory _contactnumber) external{
         ++uid;
-        voter[msg.sender][uid] = User(uid,_name,_age,msg.sender);
+        voter[msg.sender][uid] = User(uid,_name,_age,_contactnumber,msg.sender);
     }
 
     function candidateregister(string memory _name, string memory _party_name) external{
