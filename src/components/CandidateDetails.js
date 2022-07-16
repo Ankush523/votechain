@@ -1,8 +1,8 @@
 import React from 'react';
 const CandidateDetails = () => {
     return (
-        <div>
-            <h1>WELCOME TO CANDIDATE'S SECTION</h1>
+        <div className='text-[55px] text-purple-800 font-montserrat'>
+            <h1>WELCOME TO CANDIDATE'S PORTAL</h1>
         </div>
     );
 }
