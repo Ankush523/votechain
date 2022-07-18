@@ -44,7 +44,7 @@ const VoterDetails = () => {
         </div>
       </div>
       <div className="pl-9">
-        <button className=" font-montserrat text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white ">Continue to Vote</button>
+        <a href='/castvote'><button className=" font-montserrat text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white ">Continue to Vote</button></a>
       </div>
     </div>
   );
