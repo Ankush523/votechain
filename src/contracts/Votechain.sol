@@ -14,6 +14,7 @@ contract Vote{
         string contactnumber;
         string sex;
         address user;
+        bool votegiven;
     }
 
     struct Candidate{
@@ -23,11 +24,13 @@ contract Vote{
         uint age;
         string region;
         address Candidate;
+        uint count;
     }
 
-    mapping(address => mapping(uint => User)) voter;
-    mapping(address => mapping(uint => Candidate)) candidate;
-    mapping(uint => Candidate) candidate_list;
+    
+
+    mapping(address => User) voter;
+    mapping(uint => Candidate) candidate;
 
     function receiveUid() external view returns(uint) {
         return uid;
@@ -39,12 +42,20 @@ contract Vote{
 
     function userregister(string memory _name,uint _age,string memory _contactnumber,string memory _sex) external{
         ++uid;
-        voter[msg.sender][uid] = User(uid,_name,_age,_contactnumber,_sex,msg.sender);
+        voter[msg.sender] = User(uid,_name,_age,_contactnumber,_sex,msg.sender,false);
     }
 
     function candidateregister(string memory _name, string memory _party_name,uint _age,string memory _region) external{
         ++cid;
-        candidate[msg.sender][cid] = Candidate(cid,_name,_party_name,_age,_region,msg.sender);
-        candidate_list[cid] = Candidate(cid,_name,_party_name,_age,_region,msg.sender);
+        candidate[cid] = Candidate(cid,_name,_party_name,_age,_region,msg.sender,0);
+    }
+
+    function voting() external {
+        require(voter[msg.sender].votegiven == false);
+        voter[msg.sender].votegiven = true;
+    }
+
+    function votecount(uint _cid) external {
+            candidate[_cid].count++;
     }
 }
