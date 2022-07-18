@@ -8,8 +8,8 @@ const VoterDetails = () => {
 
   const contract = GetContract();
 
-  const details = async () => {
-    await contract.register(name, age, contactnumber, sex);
+  const voterdetails = async () => {
+    await contract.userregister(name, age, contactnumber, sex);
   };
 
   return (
@@ -38,7 +38,7 @@ const VoterDetails = () => {
               <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setSex(e.target.value)}/>
             </div>
             <div className="pt-8">
-            <button className=" font-montserrat text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white " onClick={details}>Submit Details</button>
+            <button className=" font-montserrat text-[20px] text-purple-900 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white text-white " onClick={voterdetails}>Submit</button>
             </div>
           </div>
         </div>
