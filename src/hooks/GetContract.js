@@ -8,7 +8,7 @@ const GetContract = () => {
     const{data:signer}=useSigner();
 
     const contract = useContract({
-        addressOrName: '0xBd156e5F0f058E99e413108fe9EDeeBC55116621',
+        addressOrName: '0xB271617bC381e6Bd8AedC331219e53376848fA0C',
         contractInterface: VotechainABI,
         signerOrProvider: signer,
       })

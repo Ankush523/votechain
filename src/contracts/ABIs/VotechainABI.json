@@ -10,6 +10,16 @@
 				"internalType": "string",
 				"name": "_party_name",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_age",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_region",
+				"type": "string"
 			}
 		],
 		"name": "candidateregister",
@@ -28,9 +38,39 @@
 				"internalType": "uint256",
 				"name": "_age",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_contactnumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_sex",
+				"type": "string"
 			}
 		],
 		"name": "userregister",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_cid",
+				"type": "uint256"
+			}
+		],
+		"name": "votecount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "voting",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -56,6 +96,56 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "receiveVoterData",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "uid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "contactnumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "sex",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "votegiven",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct Vote.User",
+				"name": "",
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",
