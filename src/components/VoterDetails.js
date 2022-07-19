@@ -19,28 +19,39 @@ const VoterDetails = () => {
       </div>
       <div className="p-4">
         <div className="flex flex-col items-center w-[100vw] h-[fit-content] p-[20px] justify-center px-20">
-          <div className="w-[60%] flex flex-col h-[fit-content] shadow-xl rounded-xl bg-slate-100 p-[30px]">
-            <label className="font-montserrat text-[30px] mb-10 text-purple-900">Enter Your Details </label>
-            <div className="flex flex-row p-5  justify-between">
-              <label className="font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">Name :</label>
-              <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setName(e.target.value)}/>
-            </div>
-            <div className="flex flex-row p-5 justify-between">
-              <label className="font-montserrat   w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">Age :</label>
-              <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setAge(e.target.value)}/>
-            </div>
-            <div className="flex flex-row p-5 justify-between">
-              <label className="font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">Contact Number :</label>
-              <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setContactnumber(e.target.value)}/>
-            </div>
-            <div className="flex flex-row p-5 justify-between">
-              <label className="font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">Gender :</label>
-              <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setSex(e.target.value)}/>
-            </div>
-            <div className="pt-8">
-            <button className=" font-montserrat text-[20px] text-purple-900 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white text-white " onClick={voterdetails}>Submit</button>
-            </div>
+      <form className="w-[60%] flex flex-col h-[fit-content] shadow-xl rounded-xl bg-slate-100 p-[30px]">
+      <label className="font-montserrat text-[30px] mb-10 text-purple-900">Enter Your Details </label>
+        <div className="flex flex-row p-5 justify-between">
+        <label className=" font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">
+          Name:
+        </label>
+          <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="name" onChange={(e) => setName(e.target.value)}/>
           </div>
+
+        <div className="flex flex-row p-5 justify-between">
+        <label className=" font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">
+          Age:
+        </label>
+          <input className="rounded-xl shadow-xl w-[250px]" type="number" required min="18" name="age" onChange={(e) => setAge(e.target.value)}/>
+          </div>
+
+        <div className="flex flex-row p-5 justify-between">
+        <label className=" font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">
+          Contact Number:
+        </label>
+          <input className="rounded-xl shadow-xl w-[250px]" required type="number" name="number" onChange={(e) => setContactnumber(e.target.value)}/>
+          </div>
+
+        <div className="flex flex-row p-5 justify-between">
+        <label className=" font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">
+          Gender:
+        </label>
+          <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="gender" onChange={(e) => setSex(e.target.value)}/>
+          </div>
+          <div className="pt-8">
+          <button className=" font-montserrat text-[20px] text-purple-800 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={voterdetails}>Submit</button>
+          </div>
+      </form>
         </div>
       </div>
       <div className="pl-9">
