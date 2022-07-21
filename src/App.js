@@ -5,6 +5,7 @@ import VoterDetails from './components/VoterDetails';
 import CandidateDetails from './components/CandidateDetails';
 import CandidateList from './components/CandidateList';
 import ThankYou1 from './components/ThankYou1';
+import Results from './components/Results';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/candidate" element={<CandidateDetails/>}/>
         <Route path="/castvote" element={<CandidateList/>} />
         <Route path="/thankyou1" element={<ThankYou1/>} />  
+        <Route path="/result" element={<Results/>} />
       </Routes>
       </BrowserRouter>
     </div>

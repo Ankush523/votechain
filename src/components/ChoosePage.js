@@ -27,6 +27,7 @@ const ChoosePage = () => {
         <div className='flex flex-row w-[100vw] h-[fit-content] p-[20px] justify-around'>
             <a href='/voter'><button className='text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white'>Continue as Voter</button></a>
             <a href='/candidate'><button className='text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white'>Register as Candidate</button></a>
+            <a href='/result'><button className='text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white'>View Results</button></a>
         </div>
         </div>
     );
