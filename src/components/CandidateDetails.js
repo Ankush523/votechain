@@ -3,14 +3,18 @@ import GetContract from '../hooks/GetContract';
 const CandidateDetails = () => {
     const[name,setName] = useState('');
     const[partyname,setPartyname] = useState('');
-    const[age,setAge] = useState(0);
+    const[age,setAge] = useState(null);
     const[region,setRegion] = useState('');
 
     const contract = GetContract();
 
-    const candidatedetails = async() =>{
-        await contract.candidateregister(name,partyname,age,region);
-    }
+    const candidatedetails = async () => {
+        if(name !== '' && partyname !== '' && age !== null && region !== ''){
+          await contract.candidateregister(name, partyname, age, region);
+        }else{
+          alert("Fill All Details")
+        }
+      };
 
     return (
         <div>
@@ -23,28 +27,25 @@ const CandidateDetails = () => {
                         <label className="font-montserrat text-[30px] mb-10 text-purple-900">Enter Your Details</label>
                         <div className="flex flex-row p-5  justify-between">
                             <label className="font-montserrat  w-[fit-content] px-2 py-2 text-[20px] text-purple-600">Name : </label>
-                            <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setName(e.target.value)}/>
+                            <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="name" onChange={(e) => setName(e.target.value)}/>
                         </div>
                         <div className="flex flex-row p-5  justify-between">
                             <label className="font-montserrat  w-[fit-content]  px-2 py-2 text-[20px] text-purple-600">PartyName : </label>
-                            <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setPartyname(e.target.value)}/>
+                            <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="partyname" onChange={(e) => setPartyname(e.target.value)}/>
                         </div>
                         <div className="flex flex-row p-5  justify-between">
                             <label className="font-montserrat  w-[fit-content]  px-2 py-2 text-[20px] text-purple-600">Age : </label>
-                            <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setAge(e.target.value)}/>
+                            <input className="rounded-xl shadow-xl w-[250px]" required type="number" name="age" onChange={(e) => setAge(e.target.value)}/>
                         </div>
                         <div className="flex flex-row p-5  justify-between">
                             <label className="font-montserrat  w-[fit-content]  px-2 py-2 text-[20px] text-purple-600">Representing Region : </label>
-                            <input className="rounded-xl shadow-xl w-[250px]" onChange={(e) => setRegion(e.target.value)}/>
+                            <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="region" onChange={(e) => setRegion(e.target.value)}/>
                         </div>
                         <div className='pt-8'>
-                            <button className=" font-montserrat text-[20px] text-purple-900 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white text-white" onClick={candidatedetails}>Submit</button>
+                            <button className=" font-montserrat text-[20px] text-purple-900 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={()=>candidatedetails()}>Register</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='pl-9'>
-                <button className=" font-montserrat text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white ">Register</button>
             </div>
         </div>
     );
