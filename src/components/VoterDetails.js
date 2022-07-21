@@ -23,6 +23,7 @@ const VoterDetails = () => {
       </div>
       <div className="p-4">
         <div className="flex flex-col items-center w-[100vw] h-[fit-content] p-[20px] justify-center px-20">
+        <div className='flex flex-col w-[60%] h-[fit-content] shadow-xl rounded-md bg-slate-100 p-[30px]'>
       <label className="font-montserrat text-[30px] mb-10 text-purple-900">Enter Your Details </label>
         <div className="flex flex-row p-5 justify-between">
         <label className=" font-montserrat  w-[fit-content] p-1 px-2 py-2 text-[20px] text-purple-600">Name:</label>
@@ -51,6 +52,7 @@ const VoterDetails = () => {
       <div className="pl-9">
         <a href='/castvote'><button className=" font-montserrat text-[20px] w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-purple-800 text-white ">Continue to Vote</button></a>
       </div>
+    </div>
     </div>
   );
 };
