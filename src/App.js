@@ -3,7 +3,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import ChoosePage from './components/ChoosePage';
 import VoterDetails from './components/VoterDetails';
 import CandidateDetails from './components/CandidateDetails';
-import GiveVote from './components/GiveVote';
+import CandidateList from './components/CandidateList';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path='/' element={<ChoosePage/>} />
         <Route path="/voter" element={<VoterDetails/>}/>
         <Route path="/candidate" element={<CandidateDetails/>}/>
-        <Route path="/castvote" element={<GiveVote/>} />
+        <Route path="/castvote" element={<CandidateList/>} />
       </Routes>
       </BrowserRouter>
     </div>

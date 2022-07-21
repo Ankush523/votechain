@@ -76,6 +76,62 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_cid",
+				"type": "uint256"
+			}
+		],
+		"name": "candidatelist",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "cid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "party_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "region",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "Candidate",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Vote.Candidate",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "receiveCid",
 		"outputs": [
@@ -96,56 +152,6 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "receiveVoterData",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "uid",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "age",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "contactnumber",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "sex",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"internalType": "bool",
-						"name": "votegiven",
-						"type": "bool"
-					}
-				],
-				"internalType": "struct Vote.User",
-				"name": "",
-				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",

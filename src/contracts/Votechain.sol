@@ -17,6 +17,7 @@ contract Vote{
         bool votegiven;
     }
 
+
     struct Candidate{
         uint cid;
         string name;
@@ -27,14 +28,13 @@ contract Vote{
         uint count;
     }
 
-    
-
     mapping(address => User) voter;
     mapping(uint => Candidate) candidate;
 
     function receiveUid() external view returns(uint) {
         return uid;
     }
+
 
     function receiveCid() external view returns(uint) {
         return cid;
@@ -48,6 +48,11 @@ contract Vote{
     function candidateregister(string memory _name, string memory _party_name,uint _age,string memory _region) external{
         ++cid;
         candidate[cid] = Candidate(cid,_name,_party_name,_age,_region,msg.sender,0);
+    }
+
+    function candidatelist(uint _cid) public view returns (Candidate memory)
+    {
+        return candidate[_cid];
     }
 
     function voting() external {
