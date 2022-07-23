@@ -25,8 +25,7 @@ const Results = () => {
         <div className='flex flex-col bg-purple-900 items-center justify-center'>
             <br/>
             <br/>
-            <button className='text-[20px] w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white' onClick={getList}>View Standings</button>
-            <br/>
+            <button className='text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white' onClick={getList}>View Standings</button>
             <br/>
             <div className='w-[50%] h-[fit-content] shadow-xl rounded-xl bg-white p-[40px]'>
                 <div className='pb-[50px]'>

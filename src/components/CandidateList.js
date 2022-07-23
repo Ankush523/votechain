@@ -22,24 +22,24 @@ const CandidateList = () => {
     }
 
     return (
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col bg-purple-900 items-center justify-center'>
             <br/>
             <br/>
-            <button onClick={getList}>Get List of Candidates</button>
+            <button className='text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white' onClick={getList}>Get List of Candidates</button>
             <br/>
             <div className='w-[50%] h-[fit-content] shadow-xl rounded-xl bg-white p-[30px]'>
-                <label className='text-[20px] font-mono text-white bg-black w-[fit-content] py-2 px-4 rounded-xl'>Candidate List</label>
-                <br/>
-                <br/>
+                <div className='pb-[50px]'>
+                <label className='text-[25px] font-montserrat shadow-xl text-white bg-purple-800 w-[fit-content] py-2 px-4 rounded-xl'>Candidate List</label>
+                </div>
                 <div className='flex flex-col-reverse w-[100%] h-[fit-content]' >
             {
                  Object.keys(lists).map((list,index)=>(
                     <div className=''>
-                        <div className='flex flex-row w-[100%] justify-around border-2 rounded-md p-2 '>
-                        <label className='font-mono font-semi-bold text-[20px]'>{lists[index].name}</label>
-                        <label className='font-mono font-semi-bold text-[20px]'>{lists[index].party_name}</label>
-                        <label className='font-mono font-semi-bold text-[20px]'>{(lists[index].age).toString()}</label>
-                        <label className='font-mono font-semi-bold text-[20px]'>{lists[index].region}</label>
+                        <div className='flex flex-row w-[100%] justify-around p-1 '>
+                        <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].name}</label>
+                        <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].party_name}</label>
+                        <label className='font-montserrat font-semi-bold text-[20px]'>{(lists[index].age).toString()}</label>
+                        <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].region}</label>
                         <button onClick={()=>chooseparty(index)}>Vote</button>
                         </div>
                     <br/>
