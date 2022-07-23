@@ -22,7 +22,7 @@ const CandidateList = () => {
     }
 
     return (
-        <div className='flex flex-col bg-purple-900 items-center justify-center'>
+        <div className='flex flex-col bg-purple-900 h-fit items-center justify-center'>
             <br/>
             <br/>
             <button className='text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white' onClick={getList}>Get List of Candidates</button>
@@ -40,7 +40,7 @@ const CandidateList = () => {
                         <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].party_name}</label>
                         <label className='font-montserrat font-semi-bold text-[20px]'>{(lists[index].age).toString()}</label>
                         <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].region}</label>
-                        <button onClick={()=>chooseparty(index)}>Vote</button>
+                        <button className='bg-purple-100 px-3 rounded-md hover:bg-purple-300' onClick={()=>chooseparty(index)}>Vote</button>
                         </div>
                     <br/>
                     <br/>
