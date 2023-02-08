@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import GetContract from '../hooks/GetContract';
+import { ethers } from 'ethers';
+import VotechainABI from '../contracts/ABIs/VotechainABI.json'
+import { useSigner } from 'wagmi';
+
 const CandidateList = () => {
 
-    const contract  = GetContract();
+    //const contract  = GetContract();
+    const{data:signer}=useSigner();
+    const contract = new ethers.Contract("0xaF09820bBa2e1f2acb376DeD58964faBbf1439Aa",VotechainABI,signer);
     const[lists,setList] = useState([]);
     
     const getList = async() => {
         var len = await contract.receiveCid();
+        console.log(len.toString())
         var parseList = len.toString();
 
         setList([]);
         for(let i=1;i<=parseList;i++)
         {
             var list = await contract.candidatelist(i);
+            console.log(list)
+            // eslint-disable-next-line no-loop-func
             setList((lists) => [...lists,list])
         }
     }
@@ -34,7 +43,7 @@ const CandidateList = () => {
                 <div className='flex flex-col-reverse w-[100%] h-[fit-content]' >
             {
                  Object.keys(lists).map((list,index)=>(
-                    <div className=''>
+                    <div key="id" className=''>
                         <div className='flex flex-row w-[100%] justify-around p-1 '>
                         <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].name}</label>
                         <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].party_name}</label>

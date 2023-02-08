@@ -2,82 +2,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_party_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_age",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_region",
-				"type": "string"
-			}
-		],
-		"name": "candidateregister",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_age",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_contactnumber",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_sex",
-				"type": "string"
-			}
-		],
-		"name": "userregister",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_cid",
-				"type": "uint256"
-			}
-		],
-		"name": "votecount",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "voting",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "_cid",
 				"type": "uint256"
@@ -132,6 +56,34 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_party_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_age",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_region",
+				"type": "string"
+			}
+		],
+		"name": "candidateregister",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "receiveCid",
 		"outputs": [
@@ -155,6 +107,54 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_age",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_contactnumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_sex",
+				"type": "string"
+			}
+		],
+		"name": "userregister",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_cid",
+				"type": "uint256"
+			}
+		],
+		"name": "votecount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "voting",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
