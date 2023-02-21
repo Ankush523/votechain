@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import GetContract from "../hooks/GetContract.js";
+import SocialLogin from "@biconomy/web3-auth";
+import "@biconomy/web3-auth/dist/src/style.css";
+import { ChainId } from "@biconomy/core-types";
+import SmartAccount from "@biconomy/smart-account";
+import { ethers } from "ethers";
+import { useAccount, useProvider } from "wagmi";
+
 const VoterDetails = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState(null);
@@ -7,6 +14,52 @@ const VoterDetails = () => {
   const [sex, setSex] = useState("");
 
   const contract = GetContract();
+
+  const { address } = useAccount();
+  const provider = useProvider();
+  let options = {
+    activeNetworkId: ChainId.GOERLI,
+    supportedNetworksIds: [
+      ChainId.GOERLI,
+      ChainId.POLYGON_MAINNET,
+      ChainId.POLYGON_MUMBAI,
+    ],
+    networkConfig: [
+      {
+        chainId: ChainId.POLYGON_MUMBAI,
+        dappAPIKey: "59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3",
+        providerUrl: "<YOUR_PROVIDER_URL>",
+      },
+      {
+        chainId: ChainId.POLYGON_MAINNET,
+        dappAPIKey: "<DAPP_API_KEY>",
+        providerUrl: "<YOUR_PROVIDER_URL>",
+      },
+    ],
+  };
+
+  const login = async () => {
+    
+    const socialLogin = new SocialLogin();
+    await socialLogin.init();
+    socialLogin.showWallet();
+
+    if (!socialLogin?.provider) return;
+    const provider = new ethers.providers.Web3Provider(socialLogin.provider);
+    const accounts = await provider.listAccounts();
+    console.log("EOA address", accounts);
+
+    let smartAccount = new SmartAccount(provider, options);
+      smartAccount = await smartAccount.init();
+      const address1 = smartAccount.address;
+      console.log("Smart Account", smartAccount);
+      console.log("Smart Account Address", address1);
+
+      // const txResponse = await smartAccount.deployWalletUsingPaymaster();
+      // console.log(txResponse);
+      // const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
+      // console.log(txResponse2);
+  };
 
   const voterdetails = async () => {
     if(name !== '' && age !== null && contactnumber !== null && sex !== ''){
@@ -20,7 +73,7 @@ const VoterDetails = () => {
     <div>
       <div className="flex flex-row justify-between  mx-[40px]">
         <label className="text-[55px] text-purple-800 font-montserrat">WELCOME TO VOTER'S PORTAL</label>
-        <h1>Smart Wallet</h1>
+        <button onClick={() => login()}>Smart Wallet</button>
       </div>
       <div className="p-4">
         <div className="flex flex-col items-center w-[100vw] h-[fit-content] p-[20px] justify-center px-20">

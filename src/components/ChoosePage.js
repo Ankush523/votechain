@@ -2,7 +2,7 @@ import React from 'react';
 const ChoosePage = () => {
     return (
         <div>
-            <label className='text-[55px] font-montserrat text-purple-800'>WELCOME TO INDIA'S FIRST</label>
+            <label className='text-[55px] font-montserrat text-purple-800 '>WELCOME TO INDIA'S FIRST</label>
             <br/>
             <label className='text-[55px] font-montserrat text-purple-800'>DECENTRALIZED VOTING PLATFORM</label>
             <br/>
@@ -10,11 +10,8 @@ const ChoosePage = () => {
             <br/>
             <div className='flex flex-row text-[20px] text-left text-purple-500 justify-around'>
             <p >
-                <label className='text-[30px] text-purple-800 font-montserrat'>Our Aim is to make India's Voting System :</label>
-                <br/>More secure
-                <br/>Transparent
-                <br/>Reliable and 
-                <br/>Immutable
+                <p className='text-[25px] w-[700px] text-purple-800 font-montserrat'>Welcome to VOTECHAIN, where we are revolutionizing the way democratic processes are conducted. Our platform offers a secure, transparent, and tamper-proof way for individuals to cast their votes and have their voices heard.</p>
+                
             </p>
             <img className='w-[30vw] h-[35vh]' src='https://scientifica.ch/wp-content/uploads/2021/07/119_provotum-system-xtra-small.png'/>
             </div>
