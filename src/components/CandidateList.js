@@ -8,7 +8,8 @@ const CandidateList = () => {
 
     //const contract  = GetContract();
     const{data:signer}=useSigner();
-    const contract = new ethers.Contract("0xaF09820bBa2e1f2acb376DeD58964faBbf1439Aa",VotechainABI,signer);
+    const contract = new ethers.Contract("0x2EB67853Cd2d7795B0D9C952ee89dD8114caC587",VotechainABI,signer);
+    // console.log(contract)
     const[lists,setList] = useState([]);
     
     const getList = async() => {
@@ -21,7 +22,6 @@ const CandidateList = () => {
         {
             var list = await contract.candidatelist(i);
             console.log(list)
-            // eslint-disable-next-line no-loop-func
             setList((lists) => [...lists,list])
         }
     }
@@ -41,7 +41,7 @@ const CandidateList = () => {
                 <label className='text-[25px] font-montserrat shadow-xl text-white bg-purple-800 w-[fit-content] py-2 px-4 rounded-xl'>Candidate List</label>
                 </div>
                 <div className='flex flex-col-reverse w-[100%] h-[fit-content]' >
-            {
+                {
                  Object.keys(lists).map((list,index)=>(
                     <div key="id" className=''>
                         <div className='flex flex-row w-[100%] justify-around p-1 '>

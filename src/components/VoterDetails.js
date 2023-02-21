@@ -18,8 +18,9 @@ const VoterDetails = () => {
 
   return (
     <div>
-      <div className="text-[55px] text-purple-800 font-montserrat">
-        <h1>WELCOME TO VOTER'S PORTAL</h1>
+      <div className="flex flex-row justify-between  mx-[40px]">
+        <label className="text-[55px] text-purple-800 font-montserrat">WELCOME TO VOTER'S PORTAL</label>
+        <h1>Smart Wallet</h1>
       </div>
       <div className="p-4">
         <div className="flex flex-col items-center w-[100vw] h-[fit-content] p-[20px] justify-center px-20">

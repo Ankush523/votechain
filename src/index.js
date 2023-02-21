@@ -43,7 +43,6 @@ root.render(
   <React.StrictMode>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Navbar/>
         <App />
       </RainbowKitProvider>
     </WagmiConfig>

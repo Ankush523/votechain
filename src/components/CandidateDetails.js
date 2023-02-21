@@ -1,3 +1,4 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import React, { useState } from 'react';
 import GetContract from '../hooks/GetContract';
 const CandidateDetails = () => {
@@ -18,8 +19,9 @@ const CandidateDetails = () => {
 
     return (
         <div>
-            <div className='text-[55px] text-purple-800 font-montserrat'>
-                <h1>WELCOME TO CANDIDATE'S PORTAL</h1>
+            <div className='flex flex-row justify-between  mx-[40px] mt-[10px]'>
+                <label className="text-[55px] text-purple-800 font-montserrat">WELCOME TO CANDIDATE'S PORTAL</label>
+                <ConnectButton/>
             </div>
             <div className='p-4'>
                 <div className='flex flex-col items-center justify-center w-[100vw] p-[20px] h-[fit-content] px-20'>
