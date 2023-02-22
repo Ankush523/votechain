@@ -6,6 +6,7 @@ import { ChainId } from "@biconomy/core-types";
 import SmartAccount from "@biconomy/smart-account";
 import { ethers } from "ethers";
 import { useAccount, useProvider, useSigner } from "wagmi";
+import votechainabi from '../contracts/ABIs/VotechainABI.json'
 
 const VoterDetails = () => {
   const [name, setName] = useState("");
@@ -16,12 +17,12 @@ const VoterDetails = () => {
   const contract = GetContract();
   const{data:signer}=useSigner()
 
-  const tx = {
-    to:"0x2EB67853Cd2d7795B0D9C952ee89dD8114caC587",
-    from : "0x538F207794289005d51234f336FdB387f3b18ded",
-    value: ethers.utils.parseEther("0.02"),
-    data:"0xd0e30db0"
-  }
+  // const tx = {
+  //   to:"0xF7bdD875Ca5449B9B98E756B1157264d325BA359",
+  //   from : "0x538F207794289005d51234f336FdB387f3b18ded",
+  //   value: ethers.utils.parseEther("0.01"),
+  //   data:"0x"
+  // }
 
   const { address } = useAccount();
   const [addr, setAddr] = useState('');
@@ -66,7 +67,30 @@ const VoterDetails = () => {
   
     };
     
-    const transak = async () => {
+    // const transak = async () => {
+    //   await socialLogin.init();
+    //   if (!socialLogin?.provider) return;
+    //   const provider = new ethers.providers.Web3Provider(socialLogin.provider);
+    //   let smartAccount = new SmartAccount(provider, options);
+    //   smartAccount = await smartAccount.init();
+    //   console.log("Smart Account", smartAccount);
+    //   const txResponse = await smartAccount.deployWalletUsingPaymaster();
+    //   console.log(txResponse);
+    //   const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
+    //   console.log(txResponse2);
+    // }
+
+  const voterdetails = async () => {
+    if(name !== '' && age !== null && contactnumber !== null && sex !== ''){
+      let iface = new ethers.utils.Interface(votechainabi)
+      let det = iface.encodeFunctionData("userregister",[name, age, contactnumber, sex])
+      console.log(det)
+      const tx={
+        to:"0xfAC4Eb80D00182577c549c5A6eE4388a0deE3caD",
+        from:"0x538F207794289005d51234f336FdB387f3b18ded",
+        value:ethers.utils.parseEther("0"),
+        data:det
+      }
       await socialLogin.init();
       if (!socialLogin?.provider) return;
       const provider = new ethers.providers.Web3Provider(socialLogin.provider);
@@ -77,15 +101,14 @@ const VoterDetails = () => {
       console.log(txResponse);
       const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
       console.log(txResponse2);
-    }
-
-  const voterdetails = async () => {
-    if(name !== '' && age !== null && contactnumber !== null && sex !== ''){
-      await contract.userregister(name, age, contactnumber, sex);
+      // const tx = await contract.userregister(name, age, contactnumber, sex);
+      // console.log(tx);
     }else{
       alert("Fill All Details")
     }
   };
+
+  
 
   return (
     <div>
@@ -117,7 +140,7 @@ const VoterDetails = () => {
           <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="sex" value={sex} onChange={(e) => setSex(e.target.value)}/>
           </div>
           <div className="pt-8">
-          <button type="submit" className=" font-montserrat text-[20px] text-purple-800 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={()=>transak()}>Submit</button>
+          <button type="submit" className=" font-montserrat text-[20px] text-purple-800 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={()=>voterdetails()}>Submit</button>
           </div>
         </div>
       </div>
@@ -130,3 +153,8 @@ const VoterDetails = () => {
 };
 
 export default VoterDetails;
+
+
+//0xf7bab634bdedabe02cf63c5799ae3f51e4cfd6882b894a0ed5feb9b9c82cc847
+
+//0x55ca8e81d005ef1ce6bfeccc9fa6dbfc3b51215c970e36134a38e6b242af9e56
