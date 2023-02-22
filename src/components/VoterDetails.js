@@ -5,7 +5,7 @@ import "@biconomy/web3-auth/dist/src/style.css";
 import { ChainId } from "@biconomy/core-types";
 import SmartAccount from "@biconomy/smart-account";
 import { ethers } from "ethers";
-import { useAccount, useProvider } from "wagmi";
+import { useAccount, useProvider, useSigner } from "wagmi";
 
 const VoterDetails = () => {
   const [name, setName] = useState("");
@@ -14,9 +14,18 @@ const VoterDetails = () => {
   const [sex, setSex] = useState("");
 
   const contract = GetContract();
+  const{data:signer}=useSigner()
+
+  const tx = {
+    to:"0x2EB67853Cd2d7795B0D9C952ee89dD8114caC587",
+    from : "0x538F207794289005d51234f336FdB387f3b18ded",
+    value: ethers.utils.parseEther("0.02"),
+    data:"0xd0e30db0"
+  }
 
   const { address } = useAccount();
-  const provider = useProvider();
+  const [addr, setAddr] = useState('');
+
   let options = {
     activeNetworkId: ChainId.GOERLI,
     supportedNetworksIds: [
@@ -27,39 +36,48 @@ const VoterDetails = () => {
     networkConfig: [
       {
         chainId: ChainId.POLYGON_MUMBAI,
-        dappAPIKey: "59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3",
+        dappAPIKey: "95i8SYBAT.a228ea7a-dc7e-4705-a6f6-88f77d9699df",
         providerUrl: "<YOUR_PROVIDER_URL>",
       },
       {
         chainId: ChainId.POLYGON_MAINNET,
-        dappAPIKey: "<DAPP_API_KEY>",
+        dappAPIKey: "95i8SYBAT.a228ea7a-dc7e-4705-a6f6-88f77d9699df",
         providerUrl: "<YOUR_PROVIDER_URL>",
       },
     ],
   };
+  
+  const socialLogin = new SocialLogin();
 
   const login = async () => {
-    
-    const socialLogin = new SocialLogin();
     await socialLogin.init();
     socialLogin.showWallet();
-
     if (!socialLogin?.provider) return;
     const provider = new ethers.providers.Web3Provider(socialLogin.provider);
+    let smartAccount = new SmartAccount(provider, options);
     const accounts = await provider.listAccounts();
     console.log("EOA address", accounts);
-
-    let smartAccount = new SmartAccount(provider, options);
+  
       smartAccount = await smartAccount.init();
       const address1 = smartAccount.address;
+      setAddr(address1);
       console.log("Smart Account", smartAccount);
       console.log("Smart Account Address", address1);
-
-      // const txResponse = await smartAccount.deployWalletUsingPaymaster();
-      // console.log(txResponse);
-      // const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
-      // console.log(txResponse2);
-  };
+  
+    };
+    
+    const transak = async () => {
+      await socialLogin.init();
+      if (!socialLogin?.provider) return;
+      const provider = new ethers.providers.Web3Provider(socialLogin.provider);
+      let smartAccount = new SmartAccount(provider, options);
+      smartAccount = await smartAccount.init();
+      console.log("Smart Account", smartAccount);
+      const txResponse = await smartAccount.deployWalletUsingPaymaster();
+      console.log(txResponse);
+      const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
+      console.log(txResponse2);
+    }
 
   const voterdetails = async () => {
     if(name !== '' && age !== null && contactnumber !== null && sex !== ''){
@@ -73,7 +91,7 @@ const VoterDetails = () => {
     <div>
       <div className="flex flex-row justify-between  mx-[40px]">
         <label className="text-[55px] text-purple-800 font-montserrat">WELCOME TO VOTER'S PORTAL</label>
-        <button onClick={() => login()}>Smart Wallet</button>
+        <button className="text-xl text-white bg-purple-800 my-[20px] px-[20px] rounded-xl shadow-2xl border border-purple-800 hover:text-purple-800 hover:bg-white" onClick={() => login()}>Smart Wallet : {(addr.toString()).slice(0,8)}...{(addr.toString()).slice(37)}</button>
       </div>
       <div className="p-4">
         <div className="flex flex-col items-center w-[100vw] h-[fit-content] p-[20px] justify-center px-20">
@@ -99,7 +117,7 @@ const VoterDetails = () => {
           <input className="rounded-xl shadow-xl w-[250px]" required type="text" name="sex" value={sex} onChange={(e) => setSex(e.target.value)}/>
           </div>
           <div className="pt-8">
-          <button type="submit" className=" font-montserrat text-[20px] text-purple-800 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={()=>voterdetails()}>Submit</button>
+          <button type="submit" className=" font-montserrat text-[20px] text-purple-800 w-[fit-content] h-[fit-content] rounded-md hover:shadow-xl p-[8px] bg-white" onClick={()=>transak()}>Submit</button>
           </div>
         </div>
       </div>
