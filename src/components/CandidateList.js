@@ -60,9 +60,9 @@ const CandidateList = () => {
     const [lists, setList] = useState([]);
 
     const getList = async () => {
-        var len = await contract.receiveCid();
-        console.log(len.toString());
-        var parseList = len.toString();
+        var len1 = await contract.receiveCid();
+        console.log(len1.toString());
+        var parseList = len1.toString();
 
         setList([]);
         for (let i = 1; i <= parseList; i++) {
@@ -92,7 +92,7 @@ const CandidateList = () => {
         const txResponse = await smartAccount.deployWalletUsingPaymaster();
         console.log(txResponse);
         const txResponse2 = await smartAccount.sendGaslessTransaction({
-        transaction: tx,
+        transaction: tx
         });
         console.log(txResponse2);
 
