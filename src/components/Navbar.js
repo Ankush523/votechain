@@ -1,3 +1,4 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import React from 'react';
 const Navbar = () => {
     return (
@@ -5,7 +6,7 @@ const Navbar = () => {
             <label className='font-montserrat text-[50px] text-purple-900 font-light p-2 text-center text-2xl rounded-full' >
                 VoteChain
             </label>
-            
+            <ConnectButton/>
         </div>
     );
 }

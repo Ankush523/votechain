@@ -85,20 +85,18 @@ const VoterDetails = () => {
       let iface = new ethers.utils.Interface(votechainabi)
       let det = iface.encodeFunctionData("userregister",[name, age, contactnumber, sex])
       console.log(det)
-      const tx={
-        to:"0xfAC4Eb80D00182577c549c5A6eE4388a0deE3caD",
-        from:"0x538F207794289005d51234f336FdB387f3b18ded",
-        value:ethers.utils.parseEther("0"),
-        data:det
-      }
       await socialLogin.init();
       if (!socialLogin?.provider) return;
       const provider = new ethers.providers.Web3Provider(socialLogin.provider);
       let smartAccount = new SmartAccount(provider, options);
       smartAccount = await smartAccount.init();
       console.log("Smart Account", smartAccount);
-      const txResponse = await smartAccount.deployWalletUsingPaymaster();
-      console.log(txResponse);
+      const tx={
+        to:"0xfAC4Eb80D00182577c549c5A6eE4388a0deE3caD",
+        from:smartAccount.address,
+        value:ethers.utils.parseEther("0"),
+        data:det
+      }
       const txResponse2 = await smartAccount.sendGaslessTransaction({ transaction: tx });
       console.log(txResponse2);
       // const tx = await contract.userregister(name, age, contactnumber, sex);

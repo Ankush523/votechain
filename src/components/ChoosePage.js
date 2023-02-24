@@ -1,7 +1,9 @@
 import React from 'react';
+import Navbar from './Navbar';
 const ChoosePage = () => {
     return (
         <div>
+            <Navbar/>
             <label className='text-[55px] font-montserrat text-purple-800 '>WELCOME TO INDIA'S FIRST</label>
             <br/>
             <label className='text-[55px] font-montserrat text-purple-800'>DECENTRALIZED VOTING PLATFORM</label>
