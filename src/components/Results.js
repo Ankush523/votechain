@@ -22,7 +22,7 @@ const Results = () => {
     }
 
     return (
-        <div className='flex flex-col bg-purple-900 items-center justify-center'>
+        <div className='flex flex-col bg-purple-900 items-center justify-center h-[100vh]'>
             <br/>
             <br/>
             <button className='text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white' onClick={getList}>View Standings</button>
@@ -32,8 +32,8 @@ const Results = () => {
                 <label className='text-[25px] font-montserrat shadow-xl text-white bg-purple-800 w-[fit-content] py-2 px-4 rounded-xl'>Current Standings</label>
                 </div>
                 <div className='flex flex-row w-[100%] font-montserrat justify-around pb-10 text-[30px]'>
-                        <label className='text-purple-600'>Political Party</label>
-                        <label className='text-purple-600'>Scores</label>
+                        <label className='text-purple-600'>Political Leader Name</label>
+                        <label className='text-purple-600'>Votes Received</label>
                         </div>
                 <div className='flex flex-col-reverse w-[100%] h-[fit-content]' >
             {
@@ -41,7 +41,7 @@ const Results = () => {
                  Object.keys(lists).map((list,index)=>(
                     <div className=''>
                         <div className='flex flex-row w-[100%] justify-around p-1 '>
-                        <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].party_name}</label>
+                        <label className='font-montserrat font-semi-bold text-[20px]'>{lists[index].name} - ({lists[index].party_name})</label>
                         <label className='font-montserrat font-semi-bold text-[20px]'>{(lists[index].count).toString()}</label>
                         </div>
                     <br/>

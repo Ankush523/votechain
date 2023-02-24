@@ -34,28 +34,6 @@ const CandidateList = () => {
         },
         ],
     };
-    
-    // const login = async () => {
-        //     await socialLogin.init();
-        //     socialLogin.showWallet();
-        //     if (!socialLogin?.provider) return;
-        //     const provider = new ethers.providers.Web3Provider(socialLogin.provider);
-        //     let smartAccount = new SmartAccount(provider, options);
-        //     const accounts = await provider.listAccounts();
-        //     console.log("EOA address", accounts);
-        
-        //     smartAccount = await smartAccount.init();
-        //     const address1 = smartAccount.address;
-        //     setAddr(address1);
-        //     console.log("Smart Account", smartAccount);
-        //     console.log("Smart Account Address", address1);
-        
-        //     };
-        
-        // const contract = new ethers.Contract("0xfAC4Eb80D00182577c549c5A6eE4388a0deE3caD",VotechainABI,signer);
-        
-        // console.log(contract)
-
 
     const socialLogin = new SocialLogin();
     const [lists, setList] = useState([]);
@@ -99,34 +77,37 @@ const CandidateList = () => {
     };
 
     return (
-        <div className="flex flex-col bg-purple-900 h-fit items-center justify-center">
-        <br />
-        <br />
-        <button className="text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white" onClick={() => getList()}>Get List of Candidates</button>
-        <br />
-        <div className="w-[50%] h-[fit-content] shadow-xl rounded-xl bg-white p-[30px]">
-            <div className="pb-[50px]">
-            <label className="text-[25px] font-montserrat shadow-xl text-white bg-purple-800 w-[fit-content] py-2 px-4 rounded-xl">
-                Candidate List
-            </label>
-            </div>
-            <div className="flex flex-col-reverse w-[100%] h-[fit-content]">
-            {lists.map((list, index) => (
-                <div key="id" className="">
-                <div className="flex flex-row w-[100%] justify-around p-1 ">
-                    <label className="font-montserrat font-semi-bold text-[20px]">{list.name}</label>
-                    <label className="font-montserrat font-semi-bold text-[20px]">{list.party_name}</label>
-                    <label className="font-montserrat font-semi-bold text-[20px]">{(list.age).toString()}</label>
-                    <label className="font-montserrat font-semi-bold text-[20px]">{list.region}</label>
-                    <button className="bg-purple-100 px-3 rounded-md hover:bg-purple-300" onClick={() => chooseparty(index)}>Vote</button>
+        <div className="flex flex-col bg-purple-900 h-fit items-center justify-center h-[100vh]">
+            <br />
+            <br />
+            <button className="text-[20px] font-montserrat w-[fit-content] h-[fit-content] rounded-xl hover:shadow-xl p-[8px] bg-white" onClick={() => getList()}>Get List of Candidates</button>
+            <br />
+            <div className="w-[50%] h-[fit-content] shadow-xl rounded-xl bg-white p-[30px]">
+                <div className="pb-[50px]">
+                    <label className="text-[25px] font-montserrat shadow-xl text-white bg-purple-800 w-[fit-content] py-2 px-4 rounded-xl">Candidate List</label>
                 </div>
-                <br />
-                <br />
-                <br />
+                <div className='flex flex-row w-[100%] font-montserrat justify pb-5 text-[20px] border-b border-b-purple-800'>
+                    <label className='text-purple-600 text-left w-[20%]'>Leader</label>
+                    <label className='text-purple-600 text-center w-[20%]'>Party</label>
+                    <label className='text-purple-600 w-[20%]'>Age</label>
+                    <label className='text-purple-600 w-[20%]'>Region</label>
+                    <label className='text-purple-600 w-[20%]'>Vote</label>
                 </div>
-            ))}
+                <div className="flex flex-col-reverse w-[100%] h-[fit-content] pt-5">
+                    {lists.map((list, index) => (
+                    <div key="id" className="mb-[40px]">
+                        <div className="flex flex-row w-[100%] p-1">
+                            <label className="font-montserrat w-[20%] text-left font-semi-bold text-[20px]">{list.name}</label>
+                            <label className="font-montserrat w-[20%] text-center font-semi-bold text-[20px]">{list.party_name}</label>
+                            <label className="font-montserrat w-[20%] font-semi-bold text-[20px]">{(list.age).toString()}</label>
+                            <label className="font-montserrat w-[20%] font-semi-bold text-[20px]">{list.region}</label>
+                            <button className="bg-purple-100 px-3 ml-11 w-[10%] border border-purple-800 shadow-xl rounded-md hover:bg-purple-300" onClick={() => chooseparty(index)}>Vote</button>
+                        </div>
+                    </div>
+                    )
+                )}
+                </div>
             </div>
-        </div>
         </div>
     );
     };
